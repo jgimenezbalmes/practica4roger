@@ -12,6 +12,7 @@
   </head>
  <?php include 'connexion.php' ?>
   <body>
+  <a href="form_add_product.php"><button type="button" class="btn btn-outline-primary">Add</button></a>
   <table class="table">
   <thead>
     <tr>
@@ -22,14 +23,16 @@
     </tr>
   </thead>
   <tbody>
+    
     <?php foreach ($products as $i => $product) { ?>
     <tr>
       <th scope="row"><?php echo $i +1 ?></th>
       <td><?php echo $product['Name'] ?></td>
       <td><?php echo $product['Description'] ?></td>
       <td><?php echo $product['price'] ?></td>
-      <td><button type="button" class="btn btn-outline-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+      <td><a href="edit.php?id=<?php echo $product['id']?>"><button type="button" class="btn btn-outline-primary">Edit</button></a></td>
+      <td><a href="delete.php?id=<?php echo $product['id']?>"><button type="button" class="btn btn-outline-danger">Delete</button></a></td>
+
     </tr>
     <?php } ?>
   </tbody>
